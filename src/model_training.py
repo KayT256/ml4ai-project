@@ -16,8 +16,8 @@ def train_model(train_file_path, val_file_path, model_save_path):
     metric = tf.keras.metrics.CategoricalAccuracy('accuracy')
     model.compile(optimizer=optimizer, loss=loss, metrics=[metric])
 
-    history = model.fit(dict(train_tokenized), train_labels, validation_data=(dict(val_tokenized), val_labels), batch_size=32, epochs=3)
+    history = model.fit(dict(train_tokenized), train_labels, validation_data=(dict(val_tokenized), val_labels), batch_size=32, epochs=1)
 
     model.save_pretrained(model_save_path)
 
-train_model('D:/ml4ai-project/data/SST-2/train.tsv', 'D:/ml4ai-project/data/SST-2/train.tsv', 'D:/ml4ai-project/data/SST-2/train.tsv')
+train_model('D:/ml4ai-project/data/SST-2/train.tsv', 'D:/ml4ai-project/data/SST-2/dev.tsv', 'D:/ml4ai-project/data/models/sentiment_analysis_model')
