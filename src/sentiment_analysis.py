@@ -11,4 +11,16 @@ def predict_sentiment(text, model_load_path):
     probabilities = tf.nn.softmax(logits, axis=1)
     sentiment_score = tf.argmax(probabilities, axis=1).numpy()[0] + 1
 
-    return sentiment_score
+    return probabilities[0, 1]
+
+def map_sentiment_score(score):
+    if score < 0.2:
+        return 'Negative'
+    elif score < 0.4:
+        return 'Fairly negative'
+    elif score < 0.6:
+        return 'neutral'
+    elif score < 0.8:
+        return 'Fairlypositive'
+    else:
+        return 'Positive'
