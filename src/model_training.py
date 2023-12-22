@@ -20,4 +20,4 @@ def train_model(train_file_path, val_file_path, model_save_path):
 
     model.save_pretrained(model_save_path)
 
-train_model('D:/ml4ai-project/data/SST-2/train.tsv', 'D:/ml4ai-project/data/SST-2/dev.tsv', 'D:/ml4ai-project/data/models/sentiment_analysis_model')
+train_model('../data/SST-2/train.tsv', '../data/SST-2/dev.tsv', '../data/models/sentiment_analysis_model')
