@@ -1,6 +1,10 @@
 import tensorflow as tf
+import os
 from transformers import TFAutoModelForSequenceClassification
 from data_preprocessing import load_data, preprocess_data
+
+# Set the current working directory to the script's directory
+os.chdir(os.path.dirname(os.path.realpath(__file__)))
 
 def train_model(train_file_path, val_file_path, model_save_path):
     train_data = load_data(train_file_path)
